@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Get all the countries from the Asia continent /region using the Filter function
+        var request= new XMLHttpRequest();
+        console.log(request)
+        request.open('GET','https://restcountries.com/v3.1/all')
+        request.send()
+        request.onload=function(){
+        var countryData=JSON.parse(this.response);
+        const asia=countryData.filter((element)=>{
+        if(element.region==='Asia'){
+            return element.name;
+        }
+        })
+        console.log(asia);}
+    </script>
+</body>
+</html>
